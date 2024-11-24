@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Mantenimiento de Equipos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Mantenimiento de Equipos</h1>
+        
+        <form id="crearUsuarioForm">
+            <h2>Crear Usuario</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+            <button type="submit">Crear Usuario</button>
+        </form>
+
+        <h2>Usuarios</h2>
+        <table id="usuariosTable">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Correo Electrónico</th>
+                <th>Teléfono</th>
+            </tr>
+        </table>
+
+        <form id="crearEquipoForm">
+            <h2>Crear Equipo</h2>
+            <label for="tipoEquipo">Tipo de Equipo:</label>
+            <input type="text" id="tipoEquipo" name="tipoEquipo" required>
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required>
+            <label for="usuarioID">ID del Usuario:</label>
+            <input type="text" id="usuarioID" name="usuarioID" required>
+            <button type="submit">Crear Equipo</button>
+        </form>
+
+        <h2>Equipos</h2>
+        <table id="equiposTable">
+            <tr>
+                <th>ID</th>
+                <th>Tipo de Equipo</th>
+                <th>Modelo</th>
+                <th>ID del Usuario</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('crearUsuarioForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        });
+
+        document.getElementById('crearEquipoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        });
+
+        function agregarUsuario(id, nombre, correo, telefono) {
+            const table = document.getElementById('usuariosTable');
+            const row = table.insertRow();
+            row.insertCell(0).innerText = id;
+            row.insertCell(1).innerText = nombre;
+            row.insertCell(2).innerText = correo;
+            row.insertCell(3).innerText = telefono;
+        }
+
+        function agregarEquipo(id, tipoEquipo, modelo, usuarioID) {
+            const table = document.getElementById('equiposTable');
+            const row = table.insertRow();
+            row.insertCell(0).innerText = id;
+            row.insertCell(1).innerText = tipoEquipo;
+            row.insertCell(2).innerText = modelo;
+            row.insertCell(3).innerText = usuarioID;
+        }
+    </script>
+</body>
+</html>
